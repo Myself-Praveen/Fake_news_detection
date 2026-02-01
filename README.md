@@ -1,102 +1,106 @@
-# Fake News Detection
+# 📰 Fake News Detection
 
-A machine learning project that detects whether a news article is **True** or **Fake** using NLP techniques. Built with **TF-IDF vectorization** and **Logistic Regression & Naive Bayes** classifiers. Includes an interactive **Streamlit UI** for live predictions.
-
-## Features
-- Cleans and preprocesses text: lowercasing, removing URLs/special characters, stopwords removal, lemmatization.
-- Converts text to numeric features using TF-IDF.
-- Trains Logistic Regression and Multinomial Naive Bayes models.
-- Evaluates models with accuracy, confusion matrix, and classification report.
-- Streamlit app for live predictions.
-
-## Folder Structure
-
-fake-news-detection/
-│
-├── data/
-│ ├── raw/ # Original CSV datasets
-│ └── processed/ # Cleaned dataset
-│
-├── models/ # Trained models & vectorizer
-│ ├── logistic_model.pkl
-│ ├── naive_bayes_model.pkl
-│ └── tfidf_vectorizer.pkl
-│
-├── src/
-│ ├── preprocess.py
-│ ├── train_model.py
-│ └── app.py # Streamlit UI
-│
-├── assets/ # Screenshots or other media
-│ └── streamlit_ui.png
-│
-├── requirements.txt
-└── README.md
-
-yaml
-Copy code
-
-## Screenshot
-
-![Fake News Detection UI](assets/streamlit_ui.png)
+**Fake News Detection** is a machine learning project designed to **automatically identify and flag fake news articles**. Using NLP techniques and machine learning classifiers like **Logistic Regression** and **Naive Bayes**, it also includes an interactive **Streamlit UI** for live predictions.
 
 ---
 
-## Installation
+## 🌟 Overview
 
-1. Clone the repository:
+The goal of this project is to analyze news articles and classify them as:
+
+* **Real News 🟢**
+* **Fake News 🔴
+
+This helps users, researchers, and organizations to identify misinformation quickly and reliably.
+
+---
+
+## 🎯 Features
+
+* Cleans and preprocesses text: lowercasing, removing URLs/special characters, stopwords removal, lemmatization.
+* Converts text to numeric features using **TF-IDF vectorization**.
+* Trains **Logistic Regression** and **Multinomial Naive Bayes** models.
+* Evaluates models with accuracy, confusion matrix, and classification report.
+* Interactive **Streamlit app** for live predictions.
+
+---
+
+## 🛠 Technologies Used
+
+* Python 3
+* pandas, numpy
+* scikit-learn
+* NLTK / spaCy for text preprocessing
+* Streamlit for UI
+* Joblib for saving/loading models
+
+---
+
+## 💻 How to Run Locally
+
+### Step 1: Clone the repository
+
 ```bash
-git clone <your-repo-url>
-cd fake-news-detection
-Create and activate a virtual environment:
+git clone https://github.com/Myself-Praveen/Fake_news_detection.git
+cd Fake_news_detection
+```
 
-bash
-Copy code
-python -m venv venv
-# Git Bash
-source venv/Scripts/activate
-# PowerShell
-.\venv\Scripts\Activate.ps1
-Install dependencies:
+### Step 2: Install required packages
 
-bash
-Copy code
+```bash
 pip install -r requirements.txt
-Usage
-Preprocess & Train Models
-bash
-Copy code
-python src/preprocess.py
-python src/train_model.py
-Launch Streamlit UI
-bash
-Copy code
+```
+
+### Step 3: Run the main notebook or Streamlit app
+
+#### Option 1: Using Jupyter Notebook
+
+```bash
+jupyter notebook
+```
+
+Open the notebook and run all cells to preprocess, train, and evaluate models.
+
+#### Option 2: Using Streamlit UI
+
+```bash
 streamlit run src/app.py
-Enter a news article in the textbox.
+```
 
-Click Predict to see if it is True or Fake, along with probabilities.
+Enter a news article in the textbox and click **Predict** to see whether it is True or Fake.
 
-Model Performance
-Logistic Regression
+---
 
-Accuracy: 98.7%
+## 🖼 Screenshot
 
-High precision and recall for both classes
+Here is an example of the project in action:
 
-Naive Bayes
+![Streamlit UI](assets/streamlit_ui.png)
+*Streamlit interface for live predictions.*
 
-Accuracy: 93.1%
+> You can add more screenshots inside the `assets` folder if desired.
 
-Slightly lower but still effective
+---
 
-Technologies
-Python 3
+## 🤝 How to Contribute
 
-pandas, numpy, scikit-learn
+1. Fork the repository
+2. Clone your fork locally
+3. Create a new branch for your changes
+4. Add features, improve models, or clean data
+5. Commit changes with a descriptive message
+6. Push to your fork
+7. Open a Pull Request
 
-nltk for text preprocessing
+---
 
-Streamlit for UI
+## 📝 Support
 
-Joblib for saving/loading models
+If you encounter issues or have questions, feel free to **open an issue** on GitHub.
 
+---
+
+## 🎨 Author
+
+**Praveen Mishra**
+GitHub: [Myself-Praveen](https://github.com/Myself-Praveen)
