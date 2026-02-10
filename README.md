@@ -36,6 +36,15 @@ This helps users, researchers, and organizations to identify misinformation quic
 
 ---
 
+## 🚀 Live Demo
+
+Try the app online here:
+
+[![Streamlit App](https://img.shields.io/badge/Streamlit-App-blue?logo=streamlit)](https://fakenewsdetection-sivxtqszxykdtyywrntsjb.streamlit.app/)
+
+---
+
+
 ## 💻 How to Run Locally
 
 ### Step 1: Clone the repository
