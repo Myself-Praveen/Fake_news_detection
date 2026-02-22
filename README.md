@@ -8,7 +8,7 @@
 
 The goal of this project is to analyze news articles and classify them as:
 
-* **Real News 🟢**
+* **Real News 🟢
 * **Fake News 🔴
 
 This helps users, researchers, and organizations to identify misinformation quickly and reliably.
