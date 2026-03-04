@@ -1,39 +1,6 @@
+import os
 import pandas as pd
-import re
-import nltk
-
-nltk.download('punkt')
-nltk.download('punkt_tab')
-nltk.download('stopwords')
-nltk.download('wordnet')
-
-
-from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
-
-nltk.download('stopwords')
-nltk.download('wordnet')
-nltk.download('punkt')
-
-stop_words = set(stopwords.words('english'))
-lemmatizer = WordNetLemmatizer()
-
-
-def clean_text(text):
-    if not isinstance(text, str):
-        return ""
-
-    text = text.lower()
-    text = re.sub(r'http\S+|www\S+', '', text)
-    text = re.sub(r'[^a-z\s]', '', text)
-
-    tokens = nltk.word_tokenize(text)
-    tokens = [word for word in tokens if word not in stop_words]
-    tokens = [lemmatizer.lemmatize(word) for word in tokens]
-
-    return " ".join(tokens)
-
-
+from utils import clean_text
 
 def load_and_label_data(fake_path, true_path):
     fake_df = pd.read_csv(fake_path)
@@ -45,19 +12,25 @@ def load_and_label_data(fake_path, true_path):
     df = pd.concat([fake_df, true_df], axis=0)
     return df
 
-
 def preprocess_dataset():
-    df = load_and_label_data(
-        "data/raw/Fake.csv",
-        "data/raw/True.csv"
-    )
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    fake_path = os.path.join(base_dir, "data", "raw", "Fake.csv")
+    true_path = os.path.join(base_dir, "data", "raw", "True.csv")
+    
+    df = load_and_label_data(fake_path, true_path)
 
     df['text'] = df['text'].astype(str)
+    print("Cleaning text data... This may take a moment.")
     df['clean_text'] = df['text'].apply(clean_text)
 
     df = df[['clean_text', 'label']]
-    df.to_csv("data/processed/clean_data.csv", index=False)
-
+    
+    processed_dir = os.path.join(base_dir, "data", "processed")
+    os.makedirs(processed_dir, exist_ok=True)
+    
+    out_path = os.path.join(processed_dir, "clean_data.csv")
+    df.to_csv(out_path, index=False)
+    print(f"Data successfully cleaned and saved to {out_path}")
 
 if __name__ == "__main__":
     preprocess_dataset()
