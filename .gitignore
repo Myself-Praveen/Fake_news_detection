@@ -1,0 +1,29 @@
+# Virtual Environment
+venv/
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Data (too large for GitHub)
+data/raw/
+data/processed/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Old models (keep only the ones we need)
+models/logistic_model.pkl
+models/logistic_regression_model.pkl
+models/naive_bayes_model.pkl
+models/xgboost_model.pkl
